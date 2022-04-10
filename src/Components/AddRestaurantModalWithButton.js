@@ -12,14 +12,15 @@ const AddRestaurantModalWithButton = (props) => {
     const [selDelivLoc,setDelivLoc]=useState([]);
     const [availableLocations,setAvailableLocations]=useState([]);
     const [nbavailloc,setnbavailloc]=useState(-1);
-   // console.log(availableLocations);
 
-//     useEffect(()=>{
-// setfinishedFetchingLocations(true);
-//     },[availableLocations])
+    //useEffect((props) => {if(errorMessageForLabel==="You have successfully added the restaurant."){setShow(false)}},[errorMessageForLabel])
+    //useEffect((props) => {setShow(false)},[props.setrestaurantstate])
+
 
     const handleClose = () => {
-        setShow(false);
+        props.setrestaurantstate()
+        setShow(false)
+
     }
     const initializeModal = () => {
         setName("");
@@ -67,10 +68,10 @@ const AddRestaurantModalWithButton = (props) => {
                 return res.text();
             }).then(function (da) {
                 console.log(da);
-              //  seterrorMessageForLabel(da);
-                if (da === "You have successfully added the restaurant.") {
-                    handleClose();
-                }
+               seterrorMessageForLabel(da);
+               if(da==="You have successfully added the restaurant.") {
+                   handleClose();
+               }
             })
 
 
@@ -169,6 +170,7 @@ const AddRestaurantModalWithButton = (props) => {
                             <Button className="HomepageButton" onClick={(e) => handleSubmit(e)}>
                                 Submit
                             </Button>
+
                         </Form>
                     </Container>
                 </Modal.Body>
