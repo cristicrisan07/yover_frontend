@@ -28,7 +28,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.App-body {
+.App-body-for-login {
   background-color: #F4F3F1;
   min-width: 50vh;
  /* display: flex;*/
@@ -38,7 +38,26 @@
   /*font-size: calc(10px + 2vmin);
   color: white;*/
 }
+.App-body-for-user-view {
+  background-color: #F4F3F1;
+  min-width: 50vh;
+   display: flex;
+  flex-direction:row;
+ /* align-items:stretch;
+  justify-content: center;*/
+  /*font-size: calc(10px + 2vmin);
+  color: white;*/
+}
+.cardA{
+  background-color: #F4F3F1 !important;
+ /* border-color: #c4b8a3 !important;
+  border-width: medium !important;*/
+  color:#c4b8a3;
+  font-weight: bold;
+  font-size: x-large;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 
+}
 
 /*@keyframes App-logo-spin {*/
 /*  from {*/
@@ -52,6 +71,8 @@
   background-color: #c4b8a3 !important;
   border-color: transparent !important;
 }
+
+
 .ModalStyle .modal-content{
   background-color:#F4F3F1 ;
 }

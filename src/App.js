@@ -15,7 +15,6 @@ function App() {
      const[username,setUsername]=useState("")
 
 
-
     return (
     <div className="App" >
       <header className="App-header">
@@ -24,23 +23,31 @@ function App() {
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"/>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-        <body className="App-body">
 
-                <Container>
-                    {!isLoggedIn&&
-                        <LoginForm login={setLogin} isAdmin={setAdmin} setLoggedInIdentity={setUsername}/>
-                    }
-                    {isLoggedIn&&isAdmin&&
-                        <AdminView username={username}/>
-                    }
-                    {isLoggedIn&&!isAdmin&&
-                        <CustomerView username={username}/>
-                    }
-                </Container>
+        {!isLoggedIn &&
+            <body className="App-body-for-login">
 
+            <Container>
+                {
+                    <LoginForm login={setLogin} isAdmin={setAdmin} setLoggedInIdentity={setUsername}/>
+                }
 
+            </Container>
+            </body>
+        }
+        {isLoggedIn &&
+            <body className="App-body-for-user-view">
 
-        </body>
+            <Container>
+                {isAdmin &&
+                    <AdminView username={username}/>
+                }
+                {!isAdmin &&
+                    <CustomerView username={username}/>
+                }
+            </Container>
+            </body>
+        }
     </div>
 
   );
