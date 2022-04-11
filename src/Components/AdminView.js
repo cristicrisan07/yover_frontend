@@ -63,7 +63,7 @@ const AdminView = (props) => {
                            }
                            {
                                HasRestaurant&&
-                               <Button className="HomepageButton" onClick={}>View menu</Button>
+                               <Button className="HomepageButton" >View menu</Button>
                            }
         </Card>
             </Col>
