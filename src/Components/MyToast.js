@@ -1,49 +1,22 @@
 import {useState} from "react";
-import {Button, Col, Row, Toast} from "react-bootstrap";
+import {Col, Row, Toast} from "react-bootstrap";
 
-export default function Example() {
+export default function MyToast(props) {
     const [showA, setShowA] = useState(true);
-    const [showB, setShowB] = useState(true);
-
     const toggleShowA = () => setShowA(!showA);
-    const toggleShowB = () => setShowB(!showB);
 
     return (
         <Row>
             <Col md={6} className="mb-2">
-                <Button onClick={toggleShowA} className="mb-2">
-                    Toggle Toast <strong>with</strong> Animation
-                </Button>
-                <Toast show={showA} onClose={toggleShowA}>
+                <Toast show={showA} onClose={toggleShowA} animation={false} delay={3000} autohide>
                     <Toast.Header>
-                        <img
-                            src="holder.js/20x20?text=%20"
-                            className="rounded me-2"
-                            alt=""
-                        />
-                        <strong className="me-auto">Bootstrap</strong>
-                        <small>11 mins ago</small>
+                        <strong className="me-auto">Success.</strong>
+                        <small>1 sec ago</small>
                     </Toast.Header>
-                    <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+                    <Toast.Body>{props.messageToShow}</Toast.Body>
                 </Toast>
             </Col>
-            <Col md={6} className="mb-2">
-                <Button onClick={toggleShowB} className="mb-2">
-                    Toggle Toast <strong>without</strong> Animation
-                </Button>
-                <Toast onClose={toggleShowB} show={showB} animation={false}>
-                    <Toast.Header>
-                        <img
-                            src="holder.js/20x20?text=%20"
-                            className="rounded me-2"
-                            alt=""
-                        />
-                        <strong className="me-auto">Bootstrap</strong>
-                        <small>11 mins ago</small>
-                    </Toast.Header>
-                    <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-                </Toast>
-            </Col>
+
         </Row>
     );
 }

@@ -46,14 +46,12 @@ const AddRestaurantModalWithButton = (props) => {
 
 
     const handleSubmit = async () => {
-
+            //console.log("at submit:"+selDelivLoc);
         if (validateRestaurantData()) {
-
-            console.log(name + " " + location + " " + selDelivLoc);
             let d = {
                 name: name,
                 location: location,
-                deliveryZones: selDelivLoc.map(el => el.location),
+                deliveryZones: selDelivLoc.map(el => el.label),
                 restaurantAdministratorUsername: props.adminusername
 
             }
@@ -67,7 +65,6 @@ const AddRestaurantModalWithButton = (props) => {
             }).then(function (res) {
                 return res.text();
             }).then(function (da) {
-                console.log(da);
                seterrorMessageForLabel(da);
                if(da==="You have successfully added the restaurant.") {
                    handleClose();
@@ -110,6 +107,7 @@ const AddRestaurantModalWithButton = (props) => {
                 }
 
     }
+    // useEffect(()=>console.log("in add with restaurant modal: "+selDelivLoc),[selDelivLoc])
     return (
         <>
             <Button className={"HomepageButton"} onClick={handleShow}>Add Restaurant</Button>

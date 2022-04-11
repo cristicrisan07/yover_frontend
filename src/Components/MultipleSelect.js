@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -10,16 +10,15 @@ export default function AnimatedMulti(props) {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const handleChange = (opt) => {
         setSelectedOptions(opt);
-        props.parentFunction(selectedOptions);
+        //console.log("in MultipleSelect:\n"+ opt);
     };
-
+    useEffect(()=>{        props.parentFunction(selectedOptions)},[selectedOptions])
     const createOptionsFromStrings =() =>{
         props.delivloc.map(location => setAvailableOptions(availableOptions=>[...availableOptions,{value: location,label:location}]));
     }
     const [availableOptions,setAvailableOptions] = useState([]);
     const handleShow=()=>{
             if(availableOptions.length===0){
-                console.log("da")
                     createOptionsFromStrings();
             }
     }
