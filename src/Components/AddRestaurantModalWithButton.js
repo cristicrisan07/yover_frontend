@@ -18,7 +18,6 @@ const AddRestaurantModalWithButton = (props) => {
 
 
     const handleClose = () => {
-        props.setrestaurantstate()
         setShow(false)
 
     }
@@ -67,6 +66,7 @@ const AddRestaurantModalWithButton = (props) => {
             }).then(function (da) {
                seterrorMessageForLabel(da);
                if(da==="You have successfully added the restaurant.") {
+                   props.setrestaurantstate()
                    handleClose();
                }
             })
