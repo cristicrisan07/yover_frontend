@@ -81,8 +81,9 @@ export default function AddFoodButtonWithModal (props) {
             }).then(function (da) {
                 seterrorMessageForLabel(da);
                 if (da === "Food added successfully.") {
-                    props.showToast("You have added: " + name + " to the menu.");
                     handleClose();
+                    props.showToast("You have added: " + name + " to the menu.");
+
                 }
             })
         }

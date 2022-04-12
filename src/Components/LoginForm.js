@@ -184,8 +184,7 @@ function RegisterButton(props) {
                         seterrorMessageForLabel(da);
                     }
                     else{
-                        seterrorMessageForLabel("");
-                    }
+                            handleClose();}
                 })
 
             }
