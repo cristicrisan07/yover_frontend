@@ -4,6 +4,8 @@ import AddRestaurantModalWithButton from "./AddRestaurantModalWithButton";
 import MyToast from "./MyToast"
 import FoodMenu from "./FoodMenu";
 import AddFoodButtonWithModal from "./AddFoodButtonWithModal";
+import ButtonExportMenuAsPDF from "./ButtonExportMenuAsPDF";
+import ButtonSendAdvertisement from "./ButtonSendAdvertisement";
 
 
 const AdminView = (props) => {
@@ -88,7 +90,7 @@ const AdminView = (props) => {
         <Row>
 
             <Col>
-            <Card body className="cardA" style={{ width: '30rem' }}>
+            <Card body className="cardA" style={{ width: '45rem' }}>
             welcome {props.username} .
             <br/>
             {!HasRestaurant&&
@@ -99,6 +101,8 @@ const AdminView = (props) => {
                                <ButtonToolbar>
                                <Button className="HomepageButton" onClick={handleViewMenuClick} >View menu</Button>
                                <AddFoodButtonWithModal restaurantName={restaurant.name} showToast={setmessageForToast}/>
+                               <ButtonExportMenuAsPDF restName={restaurant.name} textOfButton={"Download menu"}/>
+                               <ButtonSendAdvertisement restName={restaurant.name} textOfButton={"Send emails"}></ButtonSendAdvertisement>
                                </ButtonToolbar>
                            }
         </Card>
